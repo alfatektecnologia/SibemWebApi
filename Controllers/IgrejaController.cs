@@ -25,7 +25,7 @@ namespace SibemWebApi.Controllers
             return Ok(igrejas);
         }
 
-        [HttpGet("{id_igreja}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<IgrejaModel>> getIgrejaById(string id)
         {
             IgrejaModel? igrejaById = await _igrejaRepositorio.GetIgrejaById(id);
@@ -40,10 +40,10 @@ namespace SibemWebApi.Controllers
         }
 
         [HttpPut("{id_igreja}")]
-        public async Task<ActionResult<IgrejaModel>> UpdateIgreja([FromBody]IgrejaModel igrejaModel, string id)
+        public async Task<ActionResult<IgrejaModel>> UpdateIgreja([FromBody]IgrejaModel igrejaModel, string id_igreja)
         {
-            igrejaModel.id_igreja = id;
-            IgrejaModel? igreja = await _igrejaRepositorio.UpdateIgreja(igrejaModel, id);
+            igrejaModel.id_igreja = id_igreja;
+            IgrejaModel? igreja = await _igrejaRepositorio.UpdateIgreja(igrejaModel, id_igreja);
             return Ok(igreja);
 
         }
