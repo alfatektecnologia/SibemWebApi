@@ -31,6 +31,12 @@ namespace SibemWebApi.Controllers
             IgrejaModel? igrejaById = await _igrejaRepositorio.GetIgrejaById(id);
             return Ok(igrejaById);
         }
+        [HttpGet("[action]{setor}")]
+        public async Task<ActionResult<List<IgrejaModel>>> getIgrejaBySetor(string setor)
+        {
+            List<IgrejaModel> listIgrejaBySetorId = await _igrejaRepositorio.GetIgrejasBySetorId(setor);
+            return Ok(listIgrejaBySetorId);
+        }
 
         [HttpPost]
         public async Task<ActionResult<IgrejaModel>> AddIgreja([FromBody] IgrejaModel igrejaModel)
@@ -48,11 +54,11 @@ namespace SibemWebApi.Controllers
 
         }
 
-        [HttpDelete("{id_igreja}")]
-        public async Task<ActionResult<IgrejaModel>> DeleteIgreja(string id)
+        [HttpDelete("{igreja_id}")]
+        public async Task<ActionResult<IgrejaModel>> DeleteIgreja(string igreja_id)
         {
            
-            bool deleted = await _igrejaRepositorio.DeleteIgreja(id);
+            bool deleted = await _igrejaRepositorio.DeleteIgreja(igreja_id);
             return Ok(deleted);
 
         }

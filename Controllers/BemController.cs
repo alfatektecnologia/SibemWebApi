@@ -25,10 +25,10 @@ namespace SibemWebApi.Controllers
             return Ok(bens);
         }
 
-        [HttpGet("{id_igreja}")]
-        public ActionResult<List<BemModel>> getBemById(string id_igreja)
+        [HttpGet("{igreja}")]
+        public ActionResult<List<BemModel>> getBemById(string igreja)
         {
-            List<BemModel?> bemById =  _bemRepositorio.GetBemById(id_igreja);
+            List<BemModel?> bemById =  _bemRepositorio.GetBemById(igreja);
             return Ok(bemById);
         }
 

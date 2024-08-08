@@ -4,6 +4,7 @@ using SibemWebApi.Models;
 
 namespace SibemWebApi.Data.Map
 {
+   
     public class IgrejaMap : IEntityTypeConfiguration<IgrejaModel>
     {
         public void Configure(EntityTypeBuilder<IgrejaModel> builder)

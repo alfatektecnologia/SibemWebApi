@@ -25,13 +25,13 @@ namespace SibemWebApi.Controllers
             return Ok(inventarios);
         }
 
-       /* [HttpGet("{id_inventario}")]
-        //public async Task<ActionResult<InventarioModel>> InventarioById(string id_inventario)
+        [HttpGet("[action]{id_inventario}")]
+        public async Task<ActionResult<InventarioModel>> InventarioById(string id_inventario)
         {
             InventarioModel? inventarioById = await _inventarioRepositorio.GetInventarioById(id_inventario);
             return Ok(inventarioById);
         }
-       */
+       
         [HttpGet("{idIgreja}")]
         public ActionResult<List<InventarioModel>?> getInventarioByIgrejaId(string idIgreja)
         {

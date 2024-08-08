@@ -64,5 +64,10 @@ namespace SibemWebApi.Repositorios
             await _dbContext.SaveChangesAsync();
             return igrejaModelById;
         }
+
+        public async Task<List<IgrejaModel>> GetIgrejasBySetorId(string setId)
+        {
+            return await _dbContext.igrejas.Where(x => x.id_setor == setId && x.situacao==1 && x.last_Inventario=="").ToListAsync();
+        }
     }
 }

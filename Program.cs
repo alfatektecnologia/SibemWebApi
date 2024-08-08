@@ -54,6 +54,7 @@ namespace SibemWebApi
             builder.Services.AddScoped<IIgrejaRepositorio, IgrejaRepositorio>();
             builder.Services.AddScoped<IInventarioRepositorio, InventarioRepositorio>();
             builder.Services.AddScoped<IBemRepositorio, BemRepositorio>();
+            builder.Services.AddScoped<IFotosRepositorio, FotosRepositorio>();
 
             builder.Services.AddAuthentication(options =>
             {

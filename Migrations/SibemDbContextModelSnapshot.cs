@@ -134,6 +134,19 @@ namespace SibemWebApi.Migrations
 
                     b.ToTable("inventario");
                 });
+            modelBuilder.Entity("SibemWebApi.Models.FotosModel", b =>
+            {
+                b.Property<int>("id")
+                   .HasColumnType("int");
+
+                b.Property<int>("id_igreja")
+                    .HasColumnType("int");
+
+                b.Property<String>("foto")
+                    .HasColumnType("varchar(255)");
+
+                b.ToTable("Fotos");
+            });
 #pragma warning restore 612, 618
         }
     }
