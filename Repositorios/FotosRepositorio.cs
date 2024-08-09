@@ -14,7 +14,7 @@ namespace SibemWebApi.Repositorios
             _dbContext = sibemDbContext;
         }
 
-        public async Task<FotosModel> AddFoto(string foto, int id_igreja)
+        public async Task<FotosModel> AddFoto(int id_igreja, string foto)
         {
             FotosModel fotosModel = new FotosModel();
             fotosModel.foto = foto;

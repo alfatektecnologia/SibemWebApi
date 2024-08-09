@@ -30,7 +30,7 @@ namespace SibemWebApi.Controllers
             if (foto != null) {
 
                
-                    await _fotosRepositorio.AddFoto(foto.foto,foto.id_igreja);
+                    await _fotosRepositorio.AddFoto(foto.id_igreja, foto.foto);
                 
             }
             
