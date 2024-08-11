@@ -8,7 +8,7 @@ namespace SibemWebApi.Data.Map
     {
         public void Configure(EntityTypeBuilder<FotosModel> builder)
         {
-            builder.Property<int>("Id");
+            builder.Property<int>("Id").ValueGeneratedOnAdd();
            builder.Property(x=> x.id_igreja).IsRequired();
            builder.Property(x=> x.foto).IsRequired().HasMaxLength(255);
         }

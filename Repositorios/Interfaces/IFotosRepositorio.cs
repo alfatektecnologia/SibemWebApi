@@ -5,6 +5,6 @@ namespace SibemWebApi.Repositorios.Interfaces
     public interface IFotosRepositorio
     {
         Task<List<FotosModel>> GetAllFotos();
-        Task<FotosModel> AddFoto(int id_igreja, string foto);
+        Task<FotosModel> AddFoto(string id_igreja, string foto);
     }
 }
