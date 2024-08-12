@@ -25,13 +25,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o E:\workspace\SibemWebApi
+        run: dotnet publish -c Release -o ./SibemWebApi
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: E:\workspace\SibemWebApi
+          path: ./SibemWebApi
 
   deploy:
     runs-on: windows-latest
