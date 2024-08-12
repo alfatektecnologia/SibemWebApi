@@ -6,7 +6,7 @@ using SibemWebApi.Repositorios.Interfaces;
 
 namespace SibemWebApi.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class fotosController : ControllerBase
