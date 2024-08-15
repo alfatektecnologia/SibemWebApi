@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SibemWebApi.Models;
 using SibemWebApi.Repositorios;
 using SibemWebApi.Repositorios.Interfaces;
+using System.Text.Json;
 
 namespace SibemWebApi.Controllers
 {
@@ -39,18 +40,20 @@ namespace SibemWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<IgrejaModel>> AddIgreja([FromBody] IgrejaModel igrejaModel)
+        public async Task<ActionResult<IgrejaModel>> AddIgreja(string igrejaJson)
         {
-            IgrejaModel igreja = await _igrejaRepositorio.AddIgreja(igrejaModel);
+            IgrejaModel? igrejaModel = JsonSerializer.Deserialize<IgrejaModel>(igrejaJson);
+            IgrejaModel igreja = await _igrejaRepositorio.AddIgreja(igrejaModel!);
             return Ok(igreja);
         }
 
         [HttpPut("{id_igreja}")]
-        public async Task<ActionResult<IgrejaModel>> UpdateIgreja([FromBody]IgrejaModel igrejaModel, string id_igreja)
+        public async Task<ActionResult<IgrejaModel>> UpdateIgreja(string igrejaJson, string id_igreja)
         {
-            igrejaModel.id_igreja = id_igreja;
-            IgrejaModel? igreja = await _igrejaRepositorio.UpdateIgreja(igrejaModel, id_igreja);
-            return Ok(igreja);
+            IgrejaModel? igrejaModel = JsonSerializer.Deserialize<IgrejaModel>(igrejaJson);
+            
+            await _igrejaRepositorio.UpdateIgreja(igrejaModel, id_igreja);
+            return Ok(igrejaModel);
 
         }
 

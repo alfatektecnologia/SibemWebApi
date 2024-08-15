@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SibemWebApi.Models;
 using SibemWebApi.Repositorios;
 using SibemWebApi.Repositorios.Interfaces;
+using System.Text.Json;
 
 namespace SibemWebApi.Controllers
 {
@@ -40,9 +41,10 @@ namespace SibemWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<InventarioModel>> AddInventario([FromBody] InventarioModel inventarioModel)
+        public async Task<ActionResult<InventarioModel>> AddInventario(string inventarioJson)
         {
-            InventarioModel inventario = await _inventarioRepositorio.AddInventario(inventarioModel);
+            InventarioModel? inventario = JsonSerializer.Deserialize<InventarioModel>(inventarioJson);
+            InventarioModel inventarioResult = await _inventarioRepositorio.AddInventario(inventario!);
             return Ok(inventario);
         }
 

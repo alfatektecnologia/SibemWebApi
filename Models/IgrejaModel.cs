@@ -2,7 +2,7 @@
 
 namespace SibemWebApi.Models
 {
-    [Keyless]
+    [Index(nameof(id_igreja), IsUnique = true)]
     public class IgrejaModel
     {
         public required string id_igreja { get; set; }

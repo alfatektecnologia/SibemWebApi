@@ -14,6 +14,7 @@ namespace SibemWebApi.Repositorios
         }
         public async Task<InventarioModel> AddInventario(InventarioModel model)
         {
+           
             _dbContext.inventario.Add(model);
             await _dbContext.SaveChangesAsync();
             return model;

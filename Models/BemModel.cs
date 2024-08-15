@@ -2,7 +2,7 @@
 
 namespace SibemWebApi.Models
 {
-    [Keyless]
+    [Index(nameof(id_bem), IsUnique = true)]
     public class BemModel
     {
         public required string id_igreja { get; set; } 
@@ -10,12 +10,6 @@ namespace SibemWebApi.Models
         public required string descricao { get; set; }
         public required string dependencia { get; set; }
         public required string status { get; set; }
-
-        public static implicit operator BemModel(List<BemModel?> v)
-        {
-            throw new NotImplementedException();
-        }
-        // public required string observacao { get; set; }
-
+       
     }
 }

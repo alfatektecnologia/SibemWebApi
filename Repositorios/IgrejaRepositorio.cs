@@ -2,6 +2,7 @@
 using SibemWebApi.Data;
 using SibemWebApi.Models;
 using SibemWebApi.Repositorios.Interfaces;
+using System.Text.Json;
 
 namespace SibemWebApi.Repositorios
 {
@@ -20,11 +21,12 @@ namespace SibemWebApi.Repositorios
 
         public async Task<IgrejaModel?> GetIgrejaById(string id)
         {
-            return await _dbContext.igrejas.FirstOrDefaultAsync(x=> x.id_igreja.Equals(id));
+            return await _dbContext.igrejas.FirstOrDefaultAsync(x=> x.id_igreja==id);
         }
 
         public async Task<IgrejaModel> AddIgreja(IgrejaModel model)
         {
+            
             await _dbContext.igrejas.AddAsync(model);
             await _dbContext.SaveChangesAsync();
 
@@ -51,18 +53,11 @@ namespace SibemWebApi.Repositorios
             if (igrejaModelById == null)
             {
                 throw new Exception($"Igreja para o ID: {id} não foi encontrada no banco de dados.");
-            }
-            igrejaModelById.igreja = model.igreja;
-            igrejaModelById.id_igreja = id;
-            igrejaModelById.endereco = model.endereco;
-            igrejaModelById.situacao = model.situacao;
-            igrejaModelById.id_setor = model.id_setor;
-            igrejaModelById.foto = model.foto;
-            igrejaModelById.last_Inventario = model.last_Inventario;
-
-            _dbContext.Update(igrejaModelById);
+            }          
+            
+            _dbContext.Update(model);
             await _dbContext.SaveChangesAsync();
-            return igrejaModelById;
+            return model;
         }
 
         public async Task<List<IgrejaModel>> GetIgrejasBySetorId(string setId)
