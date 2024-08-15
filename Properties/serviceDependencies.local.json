@@ -8,6 +8,10 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/microsoft.insights/components/sibemwebapi",
       "type": "appInsights.azure",
       "connectionId": "APPLICATIONINSIGHTS_CONNECTION_STRING"
+    },
+    "apis1": {
+      "ignored": "True",
+      "type": "apis"
     }
   }
 }
