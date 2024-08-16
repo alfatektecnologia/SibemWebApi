@@ -23,7 +23,13 @@ namespace SibemWebApi.Data
         {
             modelBuilder.Entity<BemModel>()
             .HasKey(b => b.id_bem);
-        
+
+            modelBuilder.Entity<IgrejaModel>()
+            .HasKey(b => b.id_igreja);
+
+            modelBuilder.Entity<InventarioModel>()
+            .HasKey(b => b.id_inventario);
+
             modelBuilder.ApplyConfiguration(new IgrejaMap());
             modelBuilder.ApplyConfiguration(new InventarioMap());
             modelBuilder.ApplyConfiguration(new BemMap());
