@@ -2,7 +2,7 @@
 
 namespace SibemWebApi.Models
 {
-    [Index(nameof(id_bem), IsUnique = true)]
+    [PrimaryKey(nameof(id_bem))]
     public class BemModel
     {
         public required string id_igreja { get; set; } 

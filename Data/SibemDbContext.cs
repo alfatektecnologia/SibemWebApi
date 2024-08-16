@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SibemWebApi.Data.Map;
 using SibemWebApi.Models;
+using System.Reflection.Metadata;
 
 namespace SibemWebApi.Data
 {
@@ -20,6 +21,9 @@ namespace SibemWebApi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BemModel>()
+            .HasKey(b => b.id_bem);
+        
             modelBuilder.ApplyConfiguration(new IgrejaMap());
             modelBuilder.ApplyConfiguration(new InventarioMap());
             modelBuilder.ApplyConfiguration(new BemMap());
