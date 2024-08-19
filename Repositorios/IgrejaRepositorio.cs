@@ -9,10 +9,11 @@ namespace SibemWebApi.Repositorios
     public class IgrejaRepositorio : IIgrejaRepositorio
     {
         private readonly SibemDbContext _dbContext;
-
+       
         public IgrejaRepositorio(SibemDbContext sibemDbContext)
         {
             _dbContext = sibemDbContext;
+            
         }
         public async Task<List<IgrejaModel>> GetAllIgrejas()
         {
@@ -49,13 +50,15 @@ namespace SibemWebApi.Repositorios
 
         public async Task<IgrejaModel?> UpdateIgreja(IgrejaModel model, string id)
         {
+           
            IgrejaModel? igrejaModelById = await GetIgrejaById(id);
             if (igrejaModelById == null)
             {
                 throw new Exception($"Igreja para o ID: {id} não foi encontrada no banco de dados.");
-            }          
+            }  
+            var foto = model.foto;
             
-            _dbContext.Update(model);
+            model.foto = foto;
             await _dbContext.SaveChangesAsync();
             return model;
         }

@@ -30,6 +30,9 @@ namespace SibemWebApi.Data
             modelBuilder.Entity<InventarioModel>()
             .HasKey(b => b.id_inventario);
 
+            modelBuilder.Entity<FotosModel>()
+            .HasKey(b => b.id);
+
             modelBuilder.ApplyConfiguration(new IgrejaMap());
             modelBuilder.ApplyConfiguration(new InventarioMap());
             modelBuilder.ApplyConfiguration(new BemMap());

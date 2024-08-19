@@ -2,10 +2,10 @@
 
 namespace SibemWebApi.Models
 {
-    [Index(nameof(id_igreja), IsUnique = true)]
+    [PrimaryKey(nameof(id))]
     public class FotosModel
     {
-        public int? id { get; set; } = null;
+        public int? id { get; set; }
         public string id_igreja { get; set; }
         public string foto { get; set; }
     }
