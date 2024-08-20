@@ -2,7 +2,7 @@
 {
     public class LoginModel
     {
-        public string? Email { get; set; } = "emanoel_oliveira@outlook.com";
-        public string? Password { get; set; } = "17hxhAKCde";  
+        public string? Email { get; set; } = "teste@gmail.com";
+        public string? Password { get; set; } = "AlfaTek";  
     }
 }

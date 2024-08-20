@@ -41,7 +41,7 @@ namespace SibemWebApi.Repositorios
            
         }
 
-        public async Task<List<BemModel?>> GetBemByIgrejaId(string id)
+        public async Task<List<BemModel>> GetBemByIgrejaId(string id)
         {
             
             return await _dbContext.bens.Where(x => x.id_igreja.Equals(id)).ToListAsync();
@@ -51,7 +51,7 @@ namespace SibemWebApi.Repositorios
 
         public async Task<BemModel?> UpdateBem(BemModel model, string igrejaId, string bemId)
         {
-            List<BemModel?> bemModelById = await GetBemByIgrejaId(igrejaId);
+            List<BemModel> bemModelById = await GetBemByIgrejaId(igrejaId);
             BemModel bemModel = null;
             if (bemModelById == null)
             {

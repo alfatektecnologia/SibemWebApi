@@ -15,7 +15,7 @@ namespace SibemWebApi.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] LoginModel loginModel)
         {
-            if(loginModel.Email == "emanoel_oliveira@outlook.com" && loginModel.Password == "17hxhAKCde")
+            if(loginModel.Email == "teste@gmail.com" && loginModel.Password == "AlfaTek")
             {
                 var token = GerarTokenJWT();
                 return Ok(new {token});
