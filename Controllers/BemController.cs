@@ -26,9 +26,9 @@ namespace SibemWebApi.Controllers
         }
 
         [HttpGet("{igreja}")]
-        public ActionResult<List<BemModel>> getBemById(string igreja)
+        public async Task<ActionResult<List<BemModel>>> getBemById(string igreja)
         {
-            List<BemModel?> bemById =  _bemRepositorio.GetBemById(igreja);
+            List<BemModel?> bemById = await _bemRepositorio.GetBemByIgrejaId(igreja);
             return Ok(bemById);
         }
 

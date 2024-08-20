@@ -41,38 +41,39 @@ namespace SibemWebApi.Repositorios
            
         }
 
-        public List<BemModel?> GetBemById(string id)
+        public async Task<List<BemModel?>> GetBemByIgrejaId(string id)
         {
-            List<BemModel?> list = [];
-            var result = _dbContext.bens.Where(x => x.id_igreja.Equals(id));
-            foreach (var item in result)
-            {
-                list.Add(item);
-            }
             
-
-           return list;
+            return await _dbContext.bens.Where(x => x.id_igreja.Equals(id)).ToListAsync();
+           
            
         }
 
-        public async Task<BemModel?> UpdateBem(BemModel model, string id)
+        public async Task<BemModel?> UpdateBem(BemModel model, string igrejaId, string bemId)
         {
-            BemModel? bemModelById = null;//GetBemById(id);
+            List<BemModel?> bemModelById = await GetBemByIgrejaId(igrejaId);
+            BemModel bemModel = null;
             if (bemModelById == null)
             {
-                throw new Exception($"Bem para o ID: {id} não foi encontrado no banco de dados.");
+                throw new Exception($"Bem para o ID: {igrejaId} não foi encontrado no banco de dados.");
             }
 
-            bemModelById.dependencia = model.dependencia;
-            bemModelById.status = model.status;
-            //bemModelById.observacao = model.observacao;
-            bemModelById.descricao = model.descricao;
-            bemModelById.id_bem = id;
-            bemModelById.id_igreja = model.id_igreja;
+            foreach (BemModel bem in bemModelById)
+            {
+                if(bem.id_bem == bemId) 
+                { 
+                    bemModel = bem; }
+            }
+
+            bemModel.dependencia = model.dependencia;
+            bemModel.status = model.status;
+            bemModel.descricao = model.descricao;
+            bemModel.id_bem = igrejaId;
+            bemModel.id_igreja = model.id_igreja;
             _dbContext.Update(bemModelById);
             await _dbContext.SaveChangesAsync();
 
-            return bemModelById;
+            return bemModel;
            
         }
     }

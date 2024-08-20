@@ -5,9 +5,9 @@ namespace SibemWebApi.Repositorios.Interfaces
     public interface IBemRepositorio
     {
         Task<List<BemModel>> GetAllBens();
-        List<BemModel?> GetBemById(String id);
+        Task<List<BemModel?>> GetBemByIgrejaId(String igrejaId);
         Task<BemModel> AddBem(BemModel model);
-        Task<BemModel?> UpdateBem(BemModel model, String id);
+        Task<BemModel?> UpdateBem(BemModel model, String igrejaId, string bemId);
         Task<bool> DeleteBem(String id);
 
     }
