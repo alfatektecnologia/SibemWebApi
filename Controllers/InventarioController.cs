@@ -34,9 +34,9 @@ namespace SibemWebApi.Controllers
         }
        
         [HttpGet("{idIgreja}")]
-        public ActionResult<List<InventarioModel>?> getInventarioByIgrejaId(string idIgreja)
+        public async Task<ActionResult<List<InventarioModel>?>> getInventarioByIgrejaId(string idIgreja)
         {
-            List<InventarioModel>? inventarioById =  _inventarioRepositorio.InventariosByIgrejaId(idIgreja);
+            List<InventarioModel>? inventarioById = await _inventarioRepositorio.InventariosByIgrejaId(idIgreja);
             return Ok(inventarioById);
         }
 

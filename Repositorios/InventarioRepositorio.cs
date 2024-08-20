@@ -39,15 +39,11 @@ namespace SibemWebApi.Repositorios
            return await _dbContext.inventario.ToListAsync();
         }
 
-        public List<InventarioModel>? InventariosByIgrejaId(string igrejaId)
+        public  async Task<List<InventarioModel>?> InventariosByIgrejaId(string igrejaId)
         {
-            var result = _dbContext.inventario.Where(x => x.id_igreja.Equals(igrejaId));
-            List<InventarioModel>? inventarioModels = [];
-            foreach (var item in result) {
-                inventarioModels.Add(item); 
-            }
-
-           return inventarioModels;
+           
+           return await _dbContext.inventario.Where(x => x.id_igreja == igrejaId).ToListAsync();                  
+          
         }
 
         public async Task<InventarioModel?> GetInventarioById(string id)
