@@ -48,9 +48,9 @@ namespace SibemWebApi.Repositorios
         }
         
 
-        public async Task<IgrejaModel?> UpdateIgreja(IgrejaModel model, string id)
+        public async Task<IgrejaModel?> UpdateIgreja(IgrejaModel model)
         {
-           var igreja = _dbContext.igrejas.First(x=> x.id_igreja==id);
+           var igreja = _dbContext.igrejas.First(x=> x.id_igreja==model.id_igreja);
             igreja.foto = model.foto;
             igreja.last_Inventario = model.last_Inventario;
             _dbContext.ChangeTracker.DetectChanges();

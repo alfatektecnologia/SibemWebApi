@@ -48,11 +48,11 @@ namespace SibemWebApi.Controllers
         }
 
         [HttpPut("{igrejaJson}")]
-        public async Task<ActionResult<IgrejaModel>> UpdateIgreja([FromBody] IgrejaModel model ,string igrejaJson)
+        public async Task<ActionResult<IgrejaModel>> UpdateIgreja(string igrejaJson)
         {
             IgrejaModel? igrejaModel = JsonSerializer.Deserialize<IgrejaModel>(igrejaJson);
             
-            await _igrejaRepositorio.UpdateIgreja(igrejaModel!, igrejaModel!.id_igreja);
+            await _igrejaRepositorio.UpdateIgreja(igrejaModel!);
             return Ok(igrejaModel);
 
         }
