@@ -50,15 +50,10 @@ namespace SibemWebApi.Repositorios
 
         public async Task<IgrejaModel?> UpdateIgreja(IgrejaModel model, string id)
         {
-           
-           IgrejaModel? igrejaModelById = await GetIgrejaById(id);
-            if (igrejaModelById == null)
-            {
-                throw new Exception($"Igreja para o ID: {id} não foi encontrada no banco de dados.");
-            }  
-            var foto = model.foto;
-            
-            model.foto = foto;
+           var igreja = _dbContext.igrejas.First(x=> x.id_igreja==id);
+            igreja.foto = model.foto;
+            igreja.last_Inventario = model.last_Inventario;
+            _dbContext.ChangeTracker.DetectChanges();
             await _dbContext.SaveChangesAsync();
             return model;
         }

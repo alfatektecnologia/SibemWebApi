@@ -40,6 +40,23 @@ namespace SibemWebApi.Controllers
             return Ok(inventarioById);
         }
 
+        /*
+        [HttpGet("{status}")]
+        public async Task<ActionResult<InventarioModel>?> getInventarioParcialByIgrejaId(string status, string igrejaId)
+        {
+            List<InventarioModel>? inventarioById = await _inventarioRepositorio.InventariosByIgrejaId(igrejaId);
+            InventarioModel? inventarioParcial= null;
+            foreach(InventarioModel iv in inventarioById!) 
+            {
+                if (iv.status.ToLower().Equals(status.ToLower()))
+                {
+                    inventarioParcial = iv;
+                }
+            }
+            return Ok(inventarioParcial);
+        }
+        */
+
         [HttpPost]
         public async Task<ActionResult<InventarioModel>> AddInventario(string inventarioJson)
         {
