@@ -52,7 +52,7 @@ namespace SibemWebApi.Controllers
         {
             IgrejaModel? igrejaModel = JsonSerializer.Deserialize<IgrejaModel>(igrejaJson);
             
-            await _igrejaRepositorio.UpdateIgreja(igrejaModel!);
+            await _igrejaRepositorio.UpdateIgreja(igrejaJson!);
             return Ok(igrejaModel);
 
         }

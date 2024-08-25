@@ -7,7 +7,7 @@ namespace SibemWebApi.Repositorios.Interfaces
         Task<List<IgrejaModel>> GetAllIgrejas();
         Task<IgrejaModel?> GetIgrejaById(String id);
         Task<IgrejaModel> AddIgreja(IgrejaModel model);
-        Task<IgrejaModel?> UpdateIgreja(IgrejaModel model);
+        Task<IgrejaModel?> UpdateIgreja(string modelJson);
         Task<bool> DeleteIgreja(String id);
         Task<List<IgrejaModel>> GetIgrejasBySetorId(String setId);
     }
