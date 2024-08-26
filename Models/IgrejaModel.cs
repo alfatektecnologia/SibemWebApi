@@ -9,7 +9,7 @@ namespace SibemWebApi.Models
         public required string id_setor { get; set; }
         public required string endereco { get; set; }
         public required string igreja { get; set; }
-        public string? last_Inventario { get; set; } = null;
+        public string? last_Inventario { get; set; }
         public required Int32 situacao { get; set; }
         public string? foto { get; set; } = null;
     }

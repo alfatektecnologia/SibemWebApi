@@ -55,8 +55,9 @@ namespace SibemWebApi.Repositorios
             igreja.foto = model!.foto;
             igreja.last_Inventario = model.last_Inventario;
             _dbContext.ChangeTracker.DetectChanges();
+            _dbContext.Update(igreja);
             await _dbContext.SaveChangesAsync();
-            return model;
+            return igreja;
         }
 
         public async Task<List<IgrejaModel>> GetIgrejasBySetorId(string setId)
