@@ -48,9 +48,9 @@ namespace SibemWebApi.Repositorios
         }
         
 
-        public async Task<IgrejaModel?> UpdateIgreja(string modelJson)
+        public async Task<IgrejaModel?> UpdateIgreja(IgrejaModel model)
         {
-            IgrejaModel? model = JsonSerializer.Deserialize<IgrejaModel>(modelJson);
+           // IgrejaModel? model = JsonSerializer.Deserialize<IgrejaModel>(modelJson);
             var igreja = _dbContext.igrejas.First(x=> x.id_igreja==model!.id_igreja);
             igreja.foto = model!.foto;
             igreja.last_Inventario = model.last_Inventario;
