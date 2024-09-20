@@ -17,7 +17,7 @@ namespace SibemWebApi
         {
             var secretKey = "252167c1-ed92-4dd4-a5ee-7b6cf1525d2b";
             var builder = WebApplication.CreateBuilder(args);
-
+                        
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -75,6 +75,8 @@ namespace SibemWebApi
             });
 
             var app = builder.Build();
+
+            app.UseCors(c => c.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

@@ -25,7 +25,7 @@ namespace SibemWebApi.Controllers
 
         private string GerarTokenJWT()
         {
-            string secretKey = "252167c1-ed92-4dd4-a5ee-7b6cf1525d2b";
+            string secretKey = "SECRET_KEY";
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var credencial = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
