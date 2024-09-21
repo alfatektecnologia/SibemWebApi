@@ -12,9 +12,6 @@ using System.Text;
 using Google.Apis.Auth.OAuth2;
 using FirebaseAdmin;
 
-// Replace with your Firebase project credentials
-var credential = GoogleCredential.FromFile("C:\\Users\\user\\Downloads\\sibem-9cd5f-firebase-adminsdk-q6xmf-b581e86998.json");
-FirebaseApp.Create(new AppOptions() { Credential = credential });
 
 
 namespace SibemWebApi
@@ -25,7 +22,11 @@ namespace SibemWebApi
         {
             var secretKey = "252167c1-ed92-4dd4-a5ee-7b6cf1525d2b";
             var builder = WebApplication.CreateBuilder(args);
-                        
+            // Replace with your Firebase project credentials
+            var credential = GoogleCredential.FromFile("C:\\Users\\user\\Downloads\\sibem-9cd5f-firebase-adminsdk-q6xmf-b581e86998.json");
+            FirebaseApp.Create(new AppOptions() { Credential = credential });
+
+
             // Add services to the container.
 
             builder.Services.AddControllers();
