@@ -8,6 +8,14 @@ using SibemWebApi.Data;
 using SibemWebApi.Repositorios;
 using SibemWebApi.Repositorios.Interfaces;
 using System.Text;
+//using Google.Cloud.FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
+using FirebaseAdmin;
+
+// Replace with your Firebase project credentials
+var credential = GoogleCredential.FromFile("C:\\Users\\user\\Downloads\\sibem-9cd5f-firebase-adminsdk-q6xmf-b581e86998.json");
+FirebaseApp.Create(new AppOptions() { Credential = credential });
+
 
 namespace SibemWebApi
 {

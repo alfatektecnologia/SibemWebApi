@@ -1,7 +1,16 @@
 {
   "hosting": {
-    "public": "bin\\Release\\net8.0\\publish\\"
-    
-    
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
