@@ -93,6 +93,7 @@ namespace SibemWebApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseCors("AllowAllOrigins");
 
             app.UseHttpsRedirection();
 
